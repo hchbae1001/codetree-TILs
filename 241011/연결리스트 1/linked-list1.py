@@ -14,11 +14,11 @@ def two(val):
 
 def three():
     global cur
-    cur = cur.next
+    cur = cur.prev
     
 def four():
     global cur
-    cur = cur.prev
+    cur = cur.next
 
 cur = Node(input())
 nlen = int(input())
