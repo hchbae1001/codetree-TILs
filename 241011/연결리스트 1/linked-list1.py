@@ -1,40 +1,45 @@
 class Node:
     def __init__(self, data):
-        self.data = data
-        self.prev = None
-        self.next = None
+        self.data=data
+        self.prev=None
+        self.next=None
 
-cur = None
-
-def one(val):
-    cur.prev = Node(val)
-    
-def two(val):
-    cur.next = Node(val)
-
-def three():
+def con(target,t):
     global cur
-    cur = cur.prev
-    
-def four():
+    new = Node(target)
+    if t:
+        cur.next = new
+        new.prev = cur
+    else:
+        cur.prev = new
+        new.next = cur
+
+def mv(t):
     global cur
-    cur = cur.next
+    if t:
+        #prev
+        if cur.prev is not None:
+            cur = cur.prev
+    else:
+        #next    
+        if cur.next is not None:
+            cur = cur.next
 
 cur = Node(input())
-nlen = int(input())
-for _ in range(nlen):
+for _ in range(int(input())):
     arg = list(input().split())
     order = int(arg[0])
     if order == 1:
-        one(arg[1])
+        con(arg[1], False)
     elif order == 2:
-        two(arg[1])
+        con(arg[1], True)
     elif order == 3:
-        three()
+        mv(False)
     else:
-        four()
+        mv(True)
+
     if cur.prev is None:
-        print("(Null)", end = ' ')
+        print("(Null)", end= ' ')
     else:
         print(cur.prev.data, end = ' ')
     print(cur.data, end = ' ')
@@ -42,5 +47,4 @@ for _ in range(nlen):
         print("(Null)", end = ' ')
     else:
         print(cur.next.data, end = ' ')
-
     print()
