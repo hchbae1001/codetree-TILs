@@ -1,5 +1,8 @@
 dp = [0,1,2,3]
 n = int(input())
-for i in range(3,n+4):
-    dp.append(dp[i-2]+dp[i-1])
+if n < 4:
+    print(dp[n]%10007)
+    exit()
+for _ in range(n):
+    dp.append(dp[-2]+dp[-1])
 print(dp[n]%10007)
