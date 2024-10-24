@@ -11,6 +11,9 @@ public class Main {
             tmp.put(len, i);
             if(max < len){
                 max = len;
+            }else if (max == len){
+                System.out.println("same");
+                return;
             }
         }
         System.out.print(tmp.get(max)+ " " + max);
