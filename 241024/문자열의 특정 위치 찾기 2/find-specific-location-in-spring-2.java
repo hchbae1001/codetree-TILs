@@ -1,25 +1,20 @@
-import java.util.*;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner  sc = new Scanner(System.in);
-        String[] arg = {"apple", "banana", "grape", "blueberry", "orange"};
-        char a = sc.next().charAt(0);
-        int answer = 0;
+        Scanner sc = new Scanner(System.in);
+        String[] words = {"apple", "banana", "grape", "blueberry", "orange"};
+        char target = sc.next().charAt(0);
+        int count = 0;
 
-        for(String tmp : arg){
-            Boolean isIt = false;
-            for(int i = 2; i < 4; i++){
-                if(tmp.charAt(i) == a){
-                    answer++;
-                    isIt = true;
-                    break;
+        for (String word : words) {
+            if (word.length() >= 4) {
+                if (word.charAt(2) == target || word.charAt(3) == target) {
+                    System.out.println(word);
+                    count++;
                 }
             }
-            if(isIt){
-                System.out.println(tmp);
-            }
         }
-
-        System.out.println(answer);
+        System.out.println(count);
     }
 }
