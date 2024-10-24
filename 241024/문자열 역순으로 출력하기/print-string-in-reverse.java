@@ -1,15 +1,18 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] words = new String[4];
-        for(int i = 0; i < 4; i++){
-            words[i] = sc.next();
+        
+        List<String> words = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            words.add(sc.nextLine());
         }
         
-        for(int i = 3; i >= 0; i--){
-            System.out.println(words[i]);
+        Collections.reverse(words);
+        
+        for (String word : words) {
+            System.out.println(word);
         }
     }
 }
